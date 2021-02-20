@@ -1,0 +1,17 @@
+<div fxLayout="row" fxLayoutAlign="center">
+  <mat-card fxFlex="40">
+    <mat-card-header>
+      <div mat-card-avatar [style.background-image]="headerImage()"></div>
+      <mat-card-title>{{mcStatus.ip}} ({{mcStatus.online ? 'online' : 'offline'}} at {{mcStatus.debug.cachetime * 1000 | date: 'yyyy/MM/dd HH:mm:ss'}})</mat-card-title>
+      <mat-card-subtitle>{{ mcStatus.motd.raw[0]}}</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+      <div fxFlex class="mat-h1">
+        Players: {{mcStatus.players.online}}/{{mcStatus.players.max}}
+      </div>
+      <div *ngIf="mcStatus.players.online !== 0" fxFlex class="mat-h1">
+        {{mcStatus.players.list}}
+      </div>
+    </mat-card-content>
+  </mat-card>
+</div>
