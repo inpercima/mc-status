@@ -4,28 +4,29 @@
 [![dependencies Status](https://status.david-dm.org/gh/inpercima/mc-status.svg)](https://david-dm.org/inpercima/mc-status)
 [![devDependencies Status](https://status.david-dm.org/gh/inpercima/mc-status.svg?type=dev)](https://david-dm.org/inpercima/mc-status?type=dev)
 
-Status of personal minecraft server
+Status of a minecraft server
 
-This project was generated with [swaaplate](https://github.com/inpercima/swaaplate) version 2.2.1.
+This project was generated with [swaaplate](https://github.com/inpercima/swaaplate) version 2.3.1.
 
 ## Prerequisites
 
 ### Angular CLI
 
-* `angular-cli 11.2.1` or higher
+* `angular-cli 12.1.1` or higher
 
 ### Node, npm or yarn
 
-* `node 12.19.0` or higher in combination with
-  * `npm 6.14.8` or higher or
+* `node 14.16.1` or higher in combination with
+  * `npm 6.14.12` or higher or
   * `yarn 1.22.5` or higher, used in this repository
 
 ## Dependency check
 
 Some libraries could not be updated b/c of peer dependencies or knowing issues.
 
-| library    | current version | wanted version | reason |
-| ---------- | --------------- | -------------- | ------ |
+| library    | current version | last version | reason |
+| ---------- | --------------- | ------------ | ------ |
+| rxjs       | 6.6.0           | 7.2.0        | "@angular/common@12.1.1" has incorrect peer dependency "rxjs@^6.5.3" |
 
 ## Getting started
 
@@ -99,6 +100,8 @@ Change for prodMode the option `production` to `true`.
 * [defaultRoute](#defaultRoute)
 * [production](#production)
 * [theme](#theme)
+* [serverIp](#serverIp)
+* [serverPort](#serverPort)
 
 ### `api`
 
@@ -138,3 +141,11 @@ Name of a build-in theme from angular-material or a custom light or dark theme.
 * values: `deeppurple-amber`/`indigo-pink`/`pink-bluegrey`/`purple-green`/`custom-light`/`custom-dark`
 
 To create a custom light or dark theme just edit the colors and themes in `themes.scss`.
+
+### `serverIp`
+
+Default server ip for the minecraft server.
+
+### `serverPort`
+
+Default server port for the minecraft server.

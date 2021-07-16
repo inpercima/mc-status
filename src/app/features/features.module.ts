@@ -1,10 +1,11 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FlexLayoutModule } from '@angular/flex-layout';
-import { MatCardModule } from '@angular/material/card';
-import { MatIconModule } from '@angular/material/icon';
+import { ReactiveFormsModule } from '@angular/forms';
 
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { MaterialModule } from '../shared/material/material.module';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -13,8 +14,9 @@ import { DashboardComponent } from './dashboard/dashboard.component';
   imports: [
     CommonModule,
     FlexLayoutModule,
-    MatCardModule,
-    MatIconModule,
+    HttpClientModule,
+    ReactiveFormsModule,
+    MaterialModule,
   ],
   exports: [ DashboardComponent ],
 })

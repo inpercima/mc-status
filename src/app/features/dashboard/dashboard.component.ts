@@ -1,7 +1,12 @@
 import { Component, OnInit } from '@angular/core';
+import { FormGroup, FormBuilder } from '@angular/forms';
 import { DomSanitizer, SafeStyle } from '@angular/platform-browser';
 
-import { CheckService } from 'src/app/core/check.service';
+import { Subscription, timer, range, Observable, } from 'rxjs';
+import { map } from 'rxjs/operators';
+
+import { CheckService } from 'src/app/features/dashboard/check.service';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'mcs-dashboard',
@@ -9,12 +14,37 @@ import { CheckService } from 'src/app/core/check.service';
 })
 export class DashboardComponent implements OnInit {
 
+  appRunning = false;
+
   mcStatus: any;
 
-  constructor(private domSanitizer: DomSanitizer, private checkService: CheckService) { }
+  form!: FormGroup;
+
+  timerSubscription!: Subscription;
+  reloadSubscription!: Subscription;
+  reloadTimer = timer(0, 5000);
+
+  constructor(private formBuilder: FormBuilder, private domSanitizer: DomSanitizer, private checkService: CheckService) { }
 
   ngOnInit(): void {
-    this.checkService.check().subscribe(response => this.mcStatus = response);
+    this.form = this.formBuilder.group({
+      serverIp: [environment.serverIp],
+      serverPort: [environment.serverPort],
+    });
+  }
+
+  run(): void {
+    this.appRunning = true;
+    if (this.timerSubscription) {
+      this.timerSubscription.unsubscribe();
+      this.reloadSubscription.unsubscribe();
+      this.mcStatus = null;
+    }
+    this.timerSubscription = this.reloadTimer.subscribe(i => this.check(this.form.value.serverIp + ':' + this.form.value.serverPort));
+  }
+
+  check(serverAddress: string ): void {
+    this.checkService.check(serverAddress).subscribe(response => this.mcStatus = response);
   }
 
   headerImage(): SafeStyle {

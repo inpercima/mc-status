@@ -10,7 +10,7 @@ export class CheckService {
 
   constructor(private http: HttpClient) { }
 
-  check(): Observable<any> {
-    return this.http.get<any>('https://api.mcsrvstat.us/2/85.215.92.234');
+  check(serverAddress: string): Observable<any> {
+    return this.http.get<any>(`https://api.mcsrvstat.us/2/${serverAddress}`);
   }
 }

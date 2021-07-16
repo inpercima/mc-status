@@ -31,7 +31,7 @@
   },
   "general": {
     "author": "Marcel Jänicke",
-    "description": "Status of personal minecraft server",
+    "description": "Status of a minecraft server",
     "modRewriteIndex": false,
     "name": "mc-status",
     "title": "Minecraft server status",

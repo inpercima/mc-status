@@ -4,6 +4,6 @@ body {
   overflow-y: scroll;
 }
 
-.mat-card {
+.mat-accordion, .mat-progress-bar {
   margin-top: 20px;
 }
