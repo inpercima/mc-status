@@ -49,6 +49,6 @@ export class DashboardComponent implements OnInit {
 
   headerImage(): SafeStyle {
     // DomSanitizer bypassSecurityTrustStyle must used to get picture from different url
-    return this.domSanitizer.bypassSecurityTrustStyle(`url('${this.mcStatus.icon}')`);
+    return this.mcStatus ? this.domSanitizer.bypassSecurityTrustStyle(`url('${this.mcStatus.icon}')`) : '';
   }
 }
