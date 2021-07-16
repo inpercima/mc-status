@@ -4,7 +4,9 @@
 [![dependencies Status](https://status.david-dm.org/gh/inpercima/mc-status.svg)](https://david-dm.org/inpercima/mc-status)
 [![devDependencies Status](https://status.david-dm.org/gh/inpercima/mc-status.svg?type=dev)](https://david-dm.org/inpercima/mc-status?type=dev)
 
-Status of a minecraft server
+Status of a minecraft server.
+
+This app is online under [mc-status.inpercima.net](http://mc-status.inpercima.net).
 
 This project was generated with [swaaplate](https://github.com/inpercima/swaaplate) version 2.3.1.
 
