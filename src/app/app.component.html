@@ -1,6 +1,20 @@
-<div>
-  <mat-toolbar color="primary" class="mat-elevation-z4">
-    {{ appname }}
-  </mat-toolbar>
-  <mcs-dashboard></mcs-dashboard>
-</div>
+<mat-toolbar fxLayoutAlign="space-between center" color="primary" class="mat-elevation-z4">
+  {{ appname }}
+  <button mat-button (click)="openDialog(dialog)">APP INFO</button>
+</mat-toolbar>
+<ng-template #dialog>
+  <mat-dialog-content>
+    <p>
+      The goal of this application is to check a minecraft server by a given ip on a given port.
+      <br>
+      For demonstration I use as default my own minecraft server.
+    </p>
+    <p>
+      The data is loaded by <a href="https://api.mcsrvstat.us/" target="_blank">https://api.mcsrvstat.us/</a>.
+    </p>
+  </mat-dialog-content>
+  <mat-dialog-actions align="end">
+    <button mat-button mat-dialog-close cdkFocusInitial>Close</button>
+  </mat-dialog-actions>
+</ng-template>
+<mcs-dashboard></mcs-dashboard>

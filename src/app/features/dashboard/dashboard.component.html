@@ -1,30 +1,10 @@
 <div fxLayout="row" fxLayoutAlign="center">
-  <mat-accordion fxFlex="60">
-    <mat-expansion-panel expanded="true">
-      <mat-expansion-panel-header>
-        <mat-panel-title fxFlex="30">Overview</mat-panel-title>
-        <mat-panel-description fxFlex>
-          Description of this app
-        </mat-panel-description>
-      </mat-expansion-panel-header>
-      <h3>General</h3>
-      <p>
-        The goal of this application is check a minecraft server by a given ip on given ports.
-        <br>
-        For demonstration I use as default my own minecraft server.
-      </p>
-      <p>
-        The data is loaded by <a href="https://api.mcsrvstat.us/" target="_blank">https://api.mcsrvstat.us/</a>.
-      </p>
-    </mat-expansion-panel>
-    <mat-expansion-panel>
-      <mat-expansion-panel-header>
-        <mat-panel-title fxFlex="30">Options</mat-panel-title>
-        <mat-panel-description fxFlex>
-          Settings for this app
-        </mat-panel-description>
-      </mat-expansion-panel-header>
-      <form [formGroup]="form" novalidate>
+  <mat-card fxFlex="60">
+    <mat-card-header>
+      <mat-card-title>Options and run</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <form [formGroup]="form" novalidate (ngSubmit)="onSubmit()">
         <div fxLayout="row">
           <mat-form-field fxFlex>
             <input type="text" matInput formControlName="serverIp" placeholder="Server IP">
@@ -33,37 +13,33 @@
             <input type="text" matInput formControlName="serverPort" placeholder="Server Port">
           </mat-form-field>
         </div>
+        <div fxLayout="row">
+          <button fxFlex mat-raised-button color="primary">RUN/UPDATE</button>
+        </div>
       </form>
-    </mat-expansion-panel>
-    <mat-expansion-panel>
-      <mat-expansion-panel-header>
-        <mat-panel-title fxFlex="30">Operate</mat-panel-title>
-        <mat-panel-description fxFlex>
-          Run this app with previous options
-        </mat-panel-description>
-      </mat-expansion-panel-header>
-      <div fxLayout="row">
-        <button fxFlex mat-raised-button color="primary" (click)="run()">RUN/UPDATE</button>
-      </div>
-      <div fxLayout="column" *ngIf="appRunning">
-        <div style="width: 64px; height: 64px;" [style.background-image]="headerImage()"></div>
-        <p *ngIf="mcStatus">
-          Data will be refreshed every 5 seconds.
-          <br>
-          Status: {{ mcStatus.ip }} is <strong>{{ mcStatus.online ? 'online' : 'offline' }}</strong>
-          <ng-template *ngIf="mcStatus.debug.cachetime > 0">at {{ mcStatus.debug.cachetime * 1000 | date: 'yyyy/MM/dd HH:mm:ss' }}</ng-template>
-          <br>
-          Description: {{ mcStatus.motd.raw[0] }}
-          <br>
-          Version: {{ mcStatus.version }}
-          <br>
-          Players: {{ mcStatus.players.online}}/{{mcStatus.players.max }}
-        </p>
-        <p *ngIf="!mcStatus">
-          Checking Server: {{ form.value.serverIp }}:{{ form.value.serverPort }}
-          <mat-progress-bar color="primary" mode="indeterminate" value="50"></mat-progress-bar>
-        </p>
-      </div>
-    </mat-expansion-panel>
-  </mat-accordion>
+    </mat-card-content>
+  </mat-card>
+</div>
+<div fxLayout="row" fxLayoutAlign="center">
+  <mat-card fxFlex="60" *ngIf="appRunning">
+    <mat-card-content>
+      <div *ngIf="mcStatus" style="width: 64px; height: 64px;" [style.background-image]="headerImage()"></div>
+      <p *ngIf="mcStatus">
+        Data will be refreshed every 5 seconds.
+        <br>
+        Status: {{ mcStatus.ip }} is <strong>{{ mcStatus.online ? 'online' : 'offline' }}</strong>
+        <ng-template *ngIf="mcStatus.debug.cachetime > 0">at {{ mcStatus.debug.cachetime * 1000 | date: 'yyyy/MM/dd HH:mm:ss' }}</ng-template>
+        <br>
+        Description: {{ mcStatus.motd.raw[0] }}
+        <br>
+        Version: {{ mcStatus.version }}
+        <br>
+        Players: {{ mcStatus.players.online}}/{{mcStatus.players.max }}
+      </p>
+      <p *ngIf="!mcStatus">
+        Checking Server: {{ form.value.serverIp }}:{{ form.value.serverPort }}
+        <mat-progress-bar color="primary" mode="indeterminate" value="50"></mat-progress-bar>
+      </p>
+    </mat-card-content>
+  </mat-card>
 </div>

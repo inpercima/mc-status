@@ -1,7 +1,8 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
-import { MatExpansionModule } from '@angular/material/expansion';
+import { MatCardModule } from '@angular/material/card';
+import { MatDialogModule } from '@angular/material/dialog';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
@@ -11,7 +12,8 @@ import { MatToolbarModule } from '@angular/material/toolbar';
   declarations: [],
   exports: [
     MatButtonModule,
-    MatExpansionModule,
+    MatCardModule,
+    MatDialogModule,
     MatInputModule,
     MatFormFieldModule,
     MatProgressBarModule,
@@ -20,7 +22,8 @@ import { MatToolbarModule } from '@angular/material/toolbar';
   imports: [
     CommonModule,
     MatButtonModule,
-    MatExpansionModule,
+    MatCardModule,
+    MatDialogModule,
     MatInputModule,
     MatFormFieldModule,
     MatProgressBarModule,
