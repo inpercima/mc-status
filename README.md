@@ -4,7 +4,9 @@
 [![dependencies Status](https://status.david-dm.org/gh/inpercima/mc-status.svg)](https://david-dm.org/inpercima/mc-status)
 [![devDependencies Status](https://status.david-dm.org/gh/inpercima/mc-status.svg?type=dev)](https://david-dm.org/inpercima/mc-status?type=dev)
 
-Status of a minecraft server.
+Shows the status of a minecraft server.
+
+For demonstration I use as default my own minecraft server.
 
 This app is online under [mc-status.inpercima.net](http://mc-status.inpercima.net).
 
