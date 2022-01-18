@@ -1,8 +1,7 @@
 # Minecraft server status
 
 [![MIT license](https://img.shields.io/badge/license-MIT-blue.svg)](./LICENSE.md)
-[![dependencies Status](https://status.david-dm.org/gh/inpercima/mc-status.svg)](https://david-dm.org/inpercima/mc-status)
-[![devDependencies Status](https://status.david-dm.org/gh/inpercima/mc-status.svg?type=dev)](https://david-dm.org/inpercima/mc-status?type=dev)
+[![Node CI](https://github.com/inpercima/mc-status/actions/workflows/ci.yml/badge.svg)](https://github.com/inpercima/mc-status/actions/workflows/ci.yml)
 
 Shows the status of a minecraft server.
 
