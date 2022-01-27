@@ -1,7 +1,7 @@
 # Minecraft server status
 
 [![MIT license](https://img.shields.io/badge/license-MIT-blue.svg)](./LICENSE.md)
-[![Node CI](https://github.com/inpercima/mc-status/actions/workflows/ci.yml/badge.svg)](https://github.com/inpercima/mc-status/actions/workflows/ci.yml)
+[![Node CI/CD](https://github.com/inpercima/mc-status/actions/workflows/ci_cd.yml/badge.svg)](https://github.com/inpercima/mc-status/actions/workflows/ci_cd.yml)
 
 Shows the status of a minecraft server.
 
