@@ -9,19 +9,19 @@ For demonstration I use as default my own minecraft server.
 
 This app is online under [mc-status.inpercima.net](http://mc-status.inpercima.net).
 
-This project was generated with [swaaplate](https://github.com/inpercima/swaaplate) version 2.3.1.
+This project was generated with [swaaplate](https://github.com/inpercima/swaaplate) version 2.3.7.
 
 ## Prerequisites
 
 ### Angular CLI
 
-* `angular-cli 14.0.0` or higher
+* `angular-cli 14.1.0` or higher
 
 ### Node, npm or yarn
 
-* `node 16.13.0` or higher in combination with
-  * `npm 8.12.1` or higher or
-  * `yarn 1.22.17` or higher, used in this repository
+* `node 16.16.0` or higher in combination with
+  * `npm 8.12.2` or higher or
+  * `yarn 1.22.19` or higher, used in this repository
 
 ## Getting started
 
