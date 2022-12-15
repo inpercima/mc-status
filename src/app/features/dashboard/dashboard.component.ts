@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder } from '@angular/forms';
+import { FormBuilder, FormGroup } from '@angular/forms';
 import { DomSanitizer, SafeStyle } from '@angular/platform-browser';
 
 import { Subscription, timer } from 'rxjs';
 
-import { CheckService } from 'src/app/features/dashboard/check.service';
+import { CheckService } from './check.service';
 import { environment } from 'src/environments/environment';
 
 @Component({
@@ -37,7 +37,7 @@ export class DashboardComponent implements OnInit {
       this.reloadSubscription.unsubscribe();
       this.mcStatus = null;
     }
-    this.reloadSubscription = this.reloadTimer.subscribe(i => this.check(this.form.value.serverIp + ':' + this.form.value.serverPort));
+    this.reloadSubscription = this.reloadTimer.subscribe(() => this.check(this.form.value.serverIp + ':' + this.form.value.serverPort));
   }
 
   check(serverAddress: string ): void {
