@@ -9,18 +9,18 @@ For demonstration I use as default my own minecraft server.
 
 This app is online under [mc-status.inpercima.net](http://mc-status.inpercima.net).
 
-This project was generated with [swaaplate](https://github.com/inpercima/swaaplate) version 2.3.7.
+This project was generated with [swaaplate](https://github.com/inpercima/swaaplate) version 2.5.0.
 
 ## Prerequisites
 
 ### Angular CLI
 
-* `angular-cli 14.1.0` or higher
+* `angular-cli 15.0.3` or higher
 
 ### Node, npm or yarn
 
-* `node 16.16.0` or higher in combination with
-  * `npm 8.12.2` or higher or
+* `node 18.10.0` or higher in combination with
+  * `npm 8.19.2` or higher or
   * `yarn 1.22.19` or higher, used in this repository
 
 ## Getting started
@@ -34,7 +34,7 @@ cd mc-status
 yarn
 ```
 
-Create environment files for `devMode` and `prodMode`.
+Create environment files for `development mode` and `production mode`.
 
 ```bash
 cp src/environments/environment.ts src/environments/environment.dev.ts
@@ -50,7 +50,7 @@ cp src/environments/environment.ts src/environments/environment.prod.ts
 It is recommanded to use a server to get full access of all angular.
 For the other options your app should run on a server which you like.
 
-### Run in devMode
+### Run in development mode
 
 ```bash
 # build, reachable on http://localhost/app/path/to/dist/
@@ -66,7 +66,7 @@ yarn watch:dev
 ### Package
 
 ```bash
-# build in prodMode, compressed
+# build in production mode, compressed
 yarn build:prod
 ```
 
@@ -85,18 +85,18 @@ ng e2e
 ### General
 
 All options have to been set in the environment files but some of them do not need to be changed.
-All defaults refer to the environment file (`environment.ts`), they are prepared in devMode (`environment.dev.ts`).
-Change for prodMode the option `production` to `true`.
+All defaults refer to the environment file (`environment.ts`), they are prepared in `development mode` (`environment.dev.ts`).
+Change for `production mode` the option `production` to `true`.
 
 ### Table of contents
 
 * [api](#api)
 * [appname](#appname)
-* [defaultRoute](#defaultRoute)
+* [defaultRoute](#defaultroute)
 * [production](#production)
 * [theme](#theme)
-* [serverIp](#serverIp)
-* [serverPort](#serverPort)
+* [serverIp](#serverip)
+* [serverPort](#serverport)
 
 ### `api`
 
