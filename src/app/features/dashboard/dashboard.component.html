@@ -1,0 +1,48 @@
+<mat-card class="w-7/12 mx-auto">
+  <mat-card-header>
+    <mat-card-title>Options and run</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <form [formGroup]="form" novalidate (ngSubmit)="onSubmit()">
+      <div class="flex gap-5">
+        <mat-form-field class="flex-1">
+          <mat-label>Server IP</mat-label>
+          <input type="text" matInput formControlName="serverIp">
+        </mat-form-field>
+        <mat-form-field class="flex-1">
+          <mat-label>Server Port</mat-label>
+          <input type="text" matInput formControlName="serverPort">
+        </mat-form-field>
+      </div>
+      <div class="flex">
+        <button class="flex-1" mat-raised-button color="primary">RUN/UPDATE</button>
+      </div>
+    </form>
+  </mat-card-content>
+</mat-card>
+<mat-card class="w-7/12 mx-auto" *ngIf="appRunning">
+  <mat-card-content>
+    <div *ngIf="mcStatus" style="width: 64px; height: 64px;" [style.background-image]="headerImage()"></div>
+    <div *ngIf="mcStatus">
+      <p>
+        Data will be refreshed every 5 seconds.
+      </p>
+      <p>
+        Status: {{ mcStatus.ip }} is <strong>{{ mcStatus.online ? 'online' : 'offline' }}</strong>
+        <ng-template *ngIf="mcStatus.debug.cachetime > 0">at {{ mcStatus.debug.cachetime * 1000 | date: 'yyyy/MM/dd HH:mm:ss' }}</ng-template>
+      </p>
+      <p>
+        Description: {{ mcStatus.motd.raw[0] }}
+      </p>
+      <p>
+        Version: {{ mcStatus.version }}
+        <br>
+        Players: {{ mcStatus.players.online}}/{{mcStatus.players.max }}
+      </p>
+    </div>
+    <p *ngIf="!mcStatus">
+      Checking Server: {{ form.value.serverIp }}:{{ form.value.serverPort }}
+      <mat-progress-bar color="primary" mode="indeterminate" value="50"></mat-progress-bar>
+    </p>
+  </mat-card-content>
+</mat-card>
