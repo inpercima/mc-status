@@ -10,6 +10,7 @@ import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { DomSanitizer, SafeStyle } from '@angular/platform-browser';
 import { Subscription, timer } from 'rxjs';
 import { CheckService } from 'src/app/core/check.service';
+import { Status } from 'src/app/core/status.model';
 import { environment } from 'src/environments/environment';
 
 @Component({
@@ -31,7 +32,7 @@ import { environment } from 'src/environments/environment';
 export class DashboardComponent implements OnInit {
   appRunning = false;
 
-  mcStatus: any;
+  mcStatus!: Status;
 
   form!: FormGroup;
 
@@ -51,7 +52,6 @@ export class DashboardComponent implements OnInit {
     this.appRunning = true;
     if (this.reloadSubscription) {
       this.reloadSubscription.unsubscribe();
-      this.mcStatus = null;
     }
     this.reloadSubscription = this.reloadTimer.subscribe(() => this.check(this.form.value.serverIp + ':' + this.form.value.serverPort));
   }

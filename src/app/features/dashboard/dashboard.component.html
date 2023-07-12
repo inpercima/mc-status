@@ -32,7 +32,7 @@
         <ng-template *ngIf="mcStatus.debug.cachetime > 0">at {{ mcStatus.debug.cachetime * 1000 | date: 'yyyy/MM/dd HH:mm:ss' }}</ng-template>
       </p>
       <p>
-        Description: {{ mcStatus.motd.raw[0] }}
+        Description: {{ mcStatus.motd.html[0] }}
       </p>
       <p>
         Version: {{ mcStatus.version }}
