@@ -9,9 +9,9 @@ import { MatInputModule } from '@angular/material/input';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { DomSanitizer, SafeStyle } from '@angular/platform-browser';
 import { Subscription, timer } from 'rxjs';
-import { CheckService } from 'src/app/core/check.service';
-import { Status } from 'src/app/core/status.model';
-import { environment } from 'src/environments/environment';
+import { CheckService } from '../../core/check.service';
+import { environment } from '../../../environments/environment';
+import { Status } from '../../core/status.model';
 
 @Component({
   selector: 'mcs-dashboard',
