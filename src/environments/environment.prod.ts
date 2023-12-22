@@ -4,6 +4,6 @@ export const environment = {
   defaultRoute: 'dashboard',
   production: true,
   theme: 'indigo-pink',
-  serverIp: '85.214.57.99',
+  serverIp: '85.215.76.190',
   serverPort: '25565',
 };
