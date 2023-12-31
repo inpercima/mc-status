@@ -1,4 +1,4 @@
-import { DatePipe, NgIf } from '@angular/common';
+import { DatePipe } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
@@ -9,8 +9,8 @@ import { MatInputModule } from '@angular/material/input';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { DomSanitizer, SafeStyle } from '@angular/platform-browser';
 import { Subscription, timer } from 'rxjs';
-import { CheckService } from '../../core/check.service';
 import { environment } from '../../../environments/environment';
+import { CheckService } from '../../core/check.service';
 import { Status } from '../../core/status.model';
 
 @Component({
@@ -24,7 +24,6 @@ import { Status } from '../../core/status.model';
     MatFormFieldModule,
     MatInputModule,
     MatProgressBarModule,
-    NgIf,
     ReactiveFormsModule,
   ],
   templateUrl: './dashboard.component.html',
