@@ -29,7 +29,7 @@ import { Status } from '../../core/status.model';
   templateUrl: './dashboard.component.html',
 })
 export class DashboardComponent implements OnInit {
-  requestStarted = false;
+  loading = false;
 
   mcStatus!: Status;
 
@@ -48,7 +48,7 @@ export class DashboardComponent implements OnInit {
   }
 
   onSubmit(): void {
-    this.requestStarted = true;
+    this.loading = true;
     if (this.reloadSubscription) {
       this.reloadSubscription.unsubscribe();
     }
