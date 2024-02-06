@@ -15,7 +15,7 @@ This project was generated with [swaaplate](https://github.com/inpercima/swaapla
 
 ### Angular CLI
 
-* `@angular/cli 17.0.8` or higher
+* `@angular/cli 17.1.2` or higher
 
 ### Node, npm or yarn
 
