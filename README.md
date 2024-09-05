@@ -17,11 +17,11 @@ This project was generated with [swaaplate](https://github.com/inpercima/swaapla
 
 * `@angular/cli 18.2.3` or higher
 
-### Node, npm or yarn
+### Node, npm or pnpm
 
 * `node 20.15.1` or higher in combination with
   * `npm 10.7.0` or higher or
-  * `yarn 1.22.22` or higher, used in this repository
+  * `pnpm 9.9.0` or higher, used in this repository
 
 ## Getting started
 
@@ -31,7 +31,7 @@ git clone https://github.com/inpercima/mc-status/
 cd mc-status
 
 # install tools and frontend dependencies
-yarn
+pnpm install
 ```
 
 Create environment files for `development mode` and `production mode`.
@@ -54,17 +54,17 @@ For the other options your app should run on a server which you like.
 
 ```bash
 # build, reachable on http://localhost/app/path/to/dist/
-yarn build:dev
+pnpm build:dev
 
 # build and starts a server, rebuild after changes, reachable on http://localhost:4200/
-yarn start
+pnpm start
 ```
 
 ### Package
 
 ```bash
 # build in production mode, compressed
-yarn build:prod
+pnpm build:prod
 ```
 
 ### Tests
