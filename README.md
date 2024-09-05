@@ -57,10 +57,7 @@ For the other options your app should run on a server which you like.
 yarn build:dev
 
 # build and starts a server, rebuild after changes, reachable on http://localhost:4200/
-yarn serve:dev
-
-# build, rebuild after changes, reachable on http://localhost/app/path/to/dist/
-yarn watch:dev
+yarn start
 ```
 
 ### Package
