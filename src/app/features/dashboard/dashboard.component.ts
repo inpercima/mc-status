@@ -15,7 +15,6 @@ import { Status } from '../../core/status.model';
 
 @Component({
   selector: 'mcs-dashboard',
-  standalone: true,
   imports: [
     DatePipe,
     MatButtonModule,

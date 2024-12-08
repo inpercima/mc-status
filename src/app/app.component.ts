@@ -12,7 +12,6 @@ import { DashboardComponent } from './features/dashboard/dashboard.component';
   selector: 'mcs-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
-  standalone: true,
   imports: [DashboardComponent, MatButtonModule, MatDialogModule, MatToolbarModule],
 })
 export class AppComponent {
