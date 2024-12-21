@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { Injectable, inject } from '@angular/core';
 
 import { Observable } from 'rxjs';
 import { Status } from './status.model';
@@ -8,7 +8,10 @@ import { Status } from './status.model';
   providedIn: 'root',
 })
 export class CheckService {
-  constructor(private http: HttpClient) {}
+
+  //#region Injections
+  private http = inject(HttpClient);
+  //#endregion
 
   check(serverAddress: string): Observable<Status> {
     return this.http.get<Status>(`https://api.mcsrvstat.us/2/${serverAddress}`);

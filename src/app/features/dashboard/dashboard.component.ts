@@ -1,5 +1,5 @@
 import { DatePipe } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
@@ -28,6 +28,12 @@ import { Status } from '../../core/status.model';
   templateUrl: './dashboard.component.html',
 })
 export class DashboardComponent implements OnInit {
+  //#region Injections
+  private formBuilder = inject(FormBuilder);
+  private domSanitizer = inject(DomSanitizer);
+  private checkService = inject(CheckService);
+  //#endregion
+
   loading = false;
 
   mcStatus!: Status;
@@ -36,8 +42,6 @@ export class DashboardComponent implements OnInit {
 
   reloadSubscription!: Subscription;
   reloadTimer = timer(0, 5000);
-
-  public constructor(private formBuilder: FormBuilder, private domSanitizer: DomSanitizer, private checkService: CheckService) {}
 
   ngOnInit(): void {
     this.form = this.formBuilder.group({
