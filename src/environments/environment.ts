@@ -3,7 +3,7 @@ export const environment = {
   appname: 'Minecraft server status',
   defaultRoute: 'dashboard',
   production: false,
-  theme: 'indigo-pink',
+  theme: 'azure-blue',
   serverIp: '85.215.76.190',
   serverPort: '25565',
 };
