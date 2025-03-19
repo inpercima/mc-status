@@ -1,10 +1,11 @@
-import { Component, TemplateRef, inject } from '@angular/core';
-import { MatDialog, MatDialogModule } from '@angular/material/dialog';
-import { Title } from '@angular/platform-browser';
-
 import { DOCUMENT } from '@angular/common';
+import { Component, TemplateRef, inject } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
+import { MatDialog, MatDialogModule } from '@angular/material/dialog';
+import { MatIconModule } from '@angular/material/icon';
+import { MatMenuModule } from '@angular/material/menu';
 import { MatToolbarModule } from '@angular/material/toolbar';
+import { Title } from '@angular/platform-browser';
 import { environment } from '../environments/environment';
 import { DashboardComponent } from './features/dashboard/dashboard.component';
 
@@ -12,10 +13,9 @@ import { DashboardComponent } from './features/dashboard/dashboard.component';
   selector: 'mcs-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
-  imports: [DashboardComponent, MatButtonModule, MatDialogModule, MatToolbarModule],
+  imports: [DashboardComponent, MatButtonModule, MatDialogModule, MatIconModule, MatMenuModule, MatToolbarModule],
 })
 export class AppComponent {
-
   //#region Injections
   private dialog = inject(MatDialog);
   private titleService = inject(Title);
