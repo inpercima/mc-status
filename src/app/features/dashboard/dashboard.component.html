@@ -7,11 +7,11 @@
       <div class="flex-col md:flex-row flex gap-5">
         <mat-form-field class="flex-1">
           <mat-label>Server IP</mat-label>
-          <input type="text" matInput formControlName="serverIp">
+          <input type="text" matInput formControlName="serverIp" />
         </mat-form-field>
         <mat-form-field class="flex-1">
           <mat-label>Server Port</mat-label>
-          <input type="text" matInput formControlName="serverPort">
+          <input type="text" matInput formControlName="serverPort" />
         </mat-form-field>
       </div>
       <div class="flex">
@@ -20,34 +20,33 @@
     </form>
   </mat-card-content>
 </mat-card>
-@if(loading) {
+@if(mcStatus()) {
 <mat-card class="w-10/12 md:w-7/12 mx-auto">
   <mat-card-content>
-    @if(mcStatus) {
-    <div class="h-[64px] w-[64px]" [style.background-image]="headerImage()"></div>
-    <p>
-      Data will be refreshed every 5 seconds.
-    </p>
-    <p>
-      Status: {{ mcStatus.ip }} is <strong>{{ mcStatus.online ? 'online' : 'offline' }}</strong>
-      @if(mcStatus.debug.cachetime > 0) {
-      at {{ mcStatus.debug.cachetime * 1000 | date: 'yyyy/MM/dd
-      HH:mm:ss' }}
-      }
-    </p>
-    <p>
-      Description: {{ mcStatus.motd.html[0] }}
-    </p>
-    <p>
-      Version: {{ mcStatus.version }}
-      <br>
-      Players: {{ mcStatus.players.online}}/{{mcStatus.players.max }}
-    </p>
+    @if(isLoading()) {
+      <p>
+        Checking Server: {{ form.value.serverIp }}:{{ form.value.serverPort }}
+        <mat-progress-bar mode="indeterminate" value="50"></mat-progress-bar>
+      </p>
     } @else {
-    <p>
-      Checking Server: {{ form.value.serverIp }}:{{ form.value.serverPort }}
-      <mat-progress-bar mode="indeterminate" value="50"></mat-progress-bar>
-    </p>
+      <div class="h-[64px] w-[64px]" [style.background-image]="headerImage()"></div>
+      <p>
+        Data will be refreshed every 5 seconds.
+      </p>
+      <p>
+        Status: {{ mcStatus()?.ip }} is <strong>{{ mcStatus()?.online ? "online" : "offline" }}</strong>
+        <!-- @if(mcStatus()?.debug.cachetime > 0) {
+           at {{ mcStatus()?.debug.cachetime * 1000 | date: "yyyy/MM/ddHH:mm:ss" }}
+        } -->
+      </p>
+      <p>
+         <!-- Description: {{ mcStatus()?.motd.html[0] }}  -->
+      </p>
+      <p>
+        <!-- Version: {{ mcStatus.value().version }} -->
+        <br>
+        <!-- Players: {{ mcStatus.value().players.online }}/{{ mcStatus.value().players!.max }} -->
+      </p>
     }
   </mat-card-content>
 </mat-card>

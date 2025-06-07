@@ -12,6 +12,7 @@ import { Subscription, timer } from 'rxjs';
 import { environment } from '../../../environments/environment';
 import { CheckService } from '../../core/check.service';
 import { Status } from '../../core/status.model';
+import { HttpResourceRef } from '@angular/common/http';
 
 @Component({
   selector: 'mcs-dashboard',
@@ -34,9 +35,8 @@ export class DashboardComponent implements OnInit {
   private checkService = inject(CheckService);
   //#endregion
 
-  loading = false;
-
-  mcStatus!: Status;
+  mcStatus = this.checkService.mcStatus;
+  isLoading = this.checkService.isLoading;
 
   form!: FormGroup;
 
@@ -51,19 +51,19 @@ export class DashboardComponent implements OnInit {
   }
 
   onSubmit(): void {
-    this.loading = true;
     if (this.reloadSubscription) {
       this.reloadSubscription.unsubscribe();
     }
-    this.reloadSubscription = this.reloadTimer.subscribe(() => this.check(this.form.value.serverIp + ':' + this.form.value.serverPort));
+    this.checkService.setAddress(this.form.value.serverIp + ':' + this.form.value.serverPort);
+    //this.reloadSubscription = this.reloadTimer.subscribe(() => this.check(this.form.value.serverIp + ':' + this.form.value.serverPort));
   }
 
   check(serverAddress: string): void {
-    this.checkService.check(serverAddress).subscribe((response) => (this.mcStatus = response));
+    //this.checkService.check(serverAddress).subscribe((response) => (this.mcStatus = response));
   }
 
   headerImage(): SafeStyle {
     // DomSanitizer bypassSecurityTrustStyle must used to get picture from different url
-    return this.mcStatus ? this.domSanitizer.bypassSecurityTrustStyle(`url('${this.mcStatus.icon}')`) : '';
+    return this.mcStatus() ? this.domSanitizer.bypassSecurityTrustStyle(`url('${this.mcStatus()?.icon}')`) : '';
   }
 }
