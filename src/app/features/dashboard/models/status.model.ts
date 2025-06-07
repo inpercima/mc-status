@@ -1,6 +1,6 @@
 import { Debug } from './debug.model';
 import { Motd } from './motd.model';
-import { Players } from './players.module';
+import { Players } from './players.model';
 
 export interface Status {
   ip: string;
