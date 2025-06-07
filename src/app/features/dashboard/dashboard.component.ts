@@ -8,10 +8,8 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { DomSanitizer, SafeStyle } from '@angular/platform-browser';
-import { Subscription, timer } from 'rxjs';
 import { environment } from '../../../environments/environment';
-import { CheckService } from '../../core/check.service';
-import { Status } from '../../core/status.model';
+import { McStatusService } from './mc-status.service';
 
 @Component({
   selector: 'mcs-dashboard',
@@ -31,17 +29,15 @@ export class DashboardComponent implements OnInit {
   //#region Injections
   private formBuilder = inject(FormBuilder);
   private domSanitizer = inject(DomSanitizer);
-  private checkService = inject(CheckService);
+  private mcStatusService = inject(McStatusService);
   //#endregion
 
-  loading = false;
-
-  mcStatus!: Status;
+  readonly mcStatus = this.mcStatusService.getStatus();
+  readonly isLoading = this.mcStatusService.isLoading();
+  isFirstRun = true;
+  interval = 0;
 
   form!: FormGroup;
-
-  reloadSubscription!: Subscription;
-  reloadTimer = timer(0, 5000);
 
   ngOnInit(): void {
     this.form = this.formBuilder.group({
@@ -51,19 +47,34 @@ export class DashboardComponent implements OnInit {
   }
 
   onSubmit(): void {
-    this.loading = true;
-    if (this.reloadSubscription) {
-      this.reloadSubscription.unsubscribe();
+    if (this.isFirstRun) {
+      this.isFirstRun = false;
+      this.loadStatus();
+      this.startInterval();
+    } else {
+      clearInterval(this.interval);
+      this.loadStatus();
+      this.reloadStatus();
+      this.startInterval();
     }
-    this.reloadSubscription = this.reloadTimer.subscribe(() => this.check(this.form.value.serverIp + ':' + this.form.value.serverPort));
   }
 
-  check(serverAddress: string): void {
-    this.checkService.check(serverAddress).subscribe((response) => (this.mcStatus = response));
+  loadStatus(): void {
+    this.mcStatusService.setAddress(this.form.value.serverIp + ':' + this.form.value.serverPort);
+  }
+
+  reloadStatus(): void {
+    this.mcStatusService.reloadResource();
+  }
+
+  startInterval(): void {
+    this.interval = setInterval(() => {
+      this.reloadStatus();
+    }, 5000);
   }
 
   headerImage(): SafeStyle {
     // DomSanitizer bypassSecurityTrustStyle must used to get picture from different url
-    return this.mcStatus ? this.domSanitizer.bypassSecurityTrustStyle(`url('${this.mcStatus.icon}')`) : '';
+    return this.mcStatus() ? this.domSanitizer.bypassSecurityTrustStyle(`url('${this.mcStatus()?.icon}')`) : '';
   }
 }
