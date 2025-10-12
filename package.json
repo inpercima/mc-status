@@ -39,7 +39,7 @@
     "typescript-eslint": "8.46.0"
   },
   "engines": {
-    "node": ">=22.18.0"
+    "node": ">=22.20.0"
   },
   "homepage": "http://mc-status.inpercima.net/",
   "license": "MIT",
