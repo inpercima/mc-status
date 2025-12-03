@@ -4,12 +4,12 @@
     "Marcel Hendrich <inpercima@gmail.com>"
   ],
   "dependencies": {
-    "@angular/cdk": "20.2.8",
+    "@angular/cdk": "21.0.1",
     "@angular/common": "21.0.3",
     "@angular/compiler": "21.0.3",
     "@angular/core": "21.0.3",
     "@angular/forms": "21.0.3",
-    "@angular/material": "20.2.8",
+    "@angular/material": "21.0.1",
     "@angular/platform-browser": "21.0.3",
     "material-icons": "1.13.14",
     "rxjs": "7.8.2",
