@@ -51,6 +51,9 @@ importers:
       '@angular/compiler-cli':
         specifier: 21.0.3
         version: 21.0.3(@angular/compiler@21.0.3)(typescript@5.9.3)
+      '@cypress/schematic':
+        specifier: 4.2.0
+        version: 4.2.0(@angular/cli@21.0.2(@types/node@24.10.1)(chokidar@4.0.3))(@angular/core@21.0.3(@angular/compiler@21.0.3)(rxjs@7.8.2)(zone.js@0.15.1))
       '@eslint/js':
         specifier: 9.39.1
         version: 9.39.1
@@ -461,6 +464,12 @@ packages:
   '@cypress/request@3.0.9':
     resolution: {integrity: sha512-I3l7FdGRXluAS44/0NguwWlO83J18p0vlr2FYHrJkWdNYhgVoiYo61IXPqaOsL+vNxU1ZqMACzItGK3/KKDsdw==}
     engines: {node: '>= 6'}
+
+  '@cypress/schematic@4.2.0':
+    resolution: {integrity: sha512-95UDJ+4zGmCpaUvETh5dW4GVOYx8MwkjF/U49kKDY6MJ5W4bgrbvZ2eEEC2Glqnx3hNZk+wUwL3zM/AU8auL2g==}
+    peerDependencies:
+      '@angular/cli': '>=18.0.0'
+      '@angular/core': '>=18.0.0'
 
   '@cypress/xvfb@1.2.4':
     resolution: {integrity: sha512-skbBzPggOVYCbnGgV+0dmBdW/s77ZkAOXIC1knS8NagwDjBrNC1LuXtQJeiN6l+m7lzmHtaoUw/ctJKdqkG57Q==}
@@ -4543,6 +4552,13 @@ snapshots:
       tough-cookie: 5.1.2
       tunnel-agent: 0.6.0
       uuid: 8.3.2
+
+  '@cypress/schematic@4.2.0(@angular/cli@21.0.2(@types/node@24.10.1)(chokidar@4.0.3))(@angular/core@21.0.3(@angular/compiler@21.0.3)(rxjs@7.8.2)(zone.js@0.15.1))':
+    dependencies:
+      '@angular/cli': 21.0.2(@types/node@24.10.1)(chokidar@4.0.3)
+      '@angular/core': 21.0.3(@angular/compiler@21.0.3)(rxjs@7.8.2)(zone.js@0.15.1)
+      jsonc-parser: 3.3.1
+      rxjs: 7.8.2
 
   '@cypress/xvfb@1.2.4(supports-color@8.1.1)':
     dependencies:
