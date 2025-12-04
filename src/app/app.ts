@@ -7,15 +7,15 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { Title } from '@angular/platform-browser';
 import { environment } from '../environments/environment';
-import { DashboardComponent } from './features/dashboard/dashboard.component';
+import { Dashboard } from './features/dashboard/dashboard';
 
 @Component({
-  selector: 'mcs-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css'],
-  imports: [DashboardComponent, MatButtonModule, MatDialogModule, MatIconModule, MatMenuModule, MatToolbarModule],
+  selector: 'app-root',
+  templateUrl: './app.html',
+  styleUrls: ['./app.css'],
+  imports: [Dashboard, MatButtonModule, MatDialogModule, MatIconModule, MatMenuModule, MatToolbarModule],
 })
-export class AppComponent {
+export class App {
   //#region Injections
   private dialog = inject(MatDialog);
   private titleService = inject(Title);

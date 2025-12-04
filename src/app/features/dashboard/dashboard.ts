@@ -12,7 +12,7 @@ import { environment } from '../../../environments/environment';
 import { McStatusService } from './mc-status.service';
 
 @Component({
-  selector: 'mcs-dashboard',
+  selector: 'app-dashboard',
   imports: [
     DatePipe,
     MatButtonModule,
@@ -23,9 +23,9 @@ import { McStatusService } from './mc-status.service';
     MatProgressBarModule,
     ReactiveFormsModule,
   ],
-  templateUrl: './dashboard.component.html',
+  templateUrl: './dashboard.html',
 })
-export class DashboardComponent implements OnInit {
+export class Dashboard implements OnInit {
   //#region Injections
   private formBuilder = inject(FormBuilder);
   private domSanitizer = inject(DomSanitizer);
