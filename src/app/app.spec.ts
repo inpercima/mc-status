@@ -3,7 +3,7 @@ import { provideHttpClientTesting } from '@angular/common/http/testing';
 import { TestBed } from '@angular/core/testing';
 import { App } from './app';
 
-describe('AppComponent', () => {
+describe('App', () => {
   beforeEach(
     async () =>
       await TestBed.configureTestingModule({
