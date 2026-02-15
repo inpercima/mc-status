@@ -27,20 +27,20 @@ import { McStatusService } from './mc-status.service';
 })
 export class Dashboard implements OnInit {
   //#region Injections
-  private formBuilder = inject(FormBuilder);
-  private domSanitizer = inject(DomSanitizer);
-  private mcStatusService = inject(McStatusService);
+  #formBuilder = inject(FormBuilder);
+  #domSanitizer = inject(DomSanitizer);
+  #mcStatusService = inject(McStatusService);
   //#endregion
 
-  readonly mcStatus = this.mcStatusService.getStatus();
-  readonly isLoading = this.mcStatusService.isLoading();
+  readonly mcStatus = this.#mcStatusService.getStatus();
+  readonly isLoading = this.#mcStatusService.isLoading();
   isFirstRun = true;
   interval = 0;
 
   form!: FormGroup;
 
   ngOnInit(): void {
-    this.form = this.formBuilder.group({
+    this.form = this.#formBuilder.group({
       serverIp: [environment.serverIp],
       serverPort: [environment.serverPort],
     });
@@ -60,11 +60,11 @@ export class Dashboard implements OnInit {
   }
 
   loadStatus(): void {
-    this.mcStatusService.setAddress(this.form.value.serverIp + ':' + this.form.value.serverPort);
+    this.#mcStatusService.setAddress(this.form.value.serverIp + ':' + this.form.value.serverPort);
   }
 
   reloadStatus(): void {
-    this.mcStatusService.reloadResource();
+    this.#mcStatusService.reloadResource();
   }
 
   startInterval(): void {
@@ -75,6 +75,6 @@ export class Dashboard implements OnInit {
 
   headerImage(): SafeStyle {
     // DomSanitizer bypassSecurityTrustStyle must used to get picture from different url
-    return this.mcStatus() ? this.domSanitizer.bypassSecurityTrustStyle(`url('${this.mcStatus()?.icon}')`) : '';
+    return this.mcStatus() ? this.#domSanitizer.bypassSecurityTrustStyle(`url('${this.mcStatus()?.icon}')`) : '';
   }
 }

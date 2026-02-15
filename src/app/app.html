@@ -1,7 +1,7 @@
 <mat-toolbar class="justify-between">
   {{ appname }}
   <div class="hidden md:block">
-    <button mat-button (click)="openDialog(dialog)">APP INFO</button>
+    <button mat-button (click)="openDialog(dialog)">Info</button>
     |
     <a
       mat-button
@@ -10,7 +10,7 @@
       title="Go to project on Github"
       target="_blank"
     >
-      <span matButtonIcon>
+      <span>
         <img class="github-link" alt="GitHub Repository" src="github-mark.svg" />
       </span>
       GitHub
@@ -21,7 +21,9 @@
       <mat-icon>more_vert</mat-icon>
     </button>
     <mat-menu #menu="matMenu">
-      <button mat-menu-item (click)="openDialog(dialog)">APP INFO</button>
+      <button mat-menu-item (click)="openDialog(dialog)">
+        <span>Info</span>
+      </button>
       <a
         mat-menu-item
         href="https://github.com/inpercima/mc-status"
@@ -29,11 +31,11 @@
         title="Go to project on Github"
         target="_blank"
       >
-        <span matButtonIcon>
+        <span>
           <img class="github-link" alt="GitHub Repository" src="github-mark.svg" />
         </span>
-        GitHub</a
-      >
+        <span>GitHub</span>
+      </a>
     </mat-menu>
   </div>
 </mat-toolbar>

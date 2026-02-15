@@ -1,5 +1,4 @@
 import { Injectable, Signal, signal } from '@angular/core';
-
 import { httpResource, HttpResourceRef } from '@angular/common/http';
 import { Status } from './models/status.model';
 
