@@ -13,14 +13,14 @@ This app is available at [mc-status.inpercima.net](https://mc-status.inpercima.n
 
 ### Node, npm or pnpm
 
-* `node 22.20.0` or higher in combination with
-  * `npm 10.9.3` or higher or
-  * `pnpm 10.26.1` or higher, used in this repository
+* `node 24.16.0` or higher in combination with
+  * `npm 11.13.0` or higher or
+  * `pnpm 10.34.4` or higher, used in this repository
 
 Install pnpm by running:
 
 ```bash
-npm install -g pnpm@10.26.1
+npm install -g pnpm@10.34.4
 ```
 
 ### Info for npm and pnpm
@@ -30,12 +30,12 @@ You can also use `npm` for your local work but changes will be made by `pnpm` on
 
 ### Angular CLI
 
-* `@angular/cli 21.0.4` or higher
+* `@angular/cli 22.0.7` or higher
 
 Install @angular/cli by running:
 
 ```bash
-pnpm install -g @angular/cli@21
+pnpm install -g @angular/cli@212
 ```
 
 ## Getting started
@@ -130,7 +130,6 @@ Change for `production mode` the option `production` to `true`.
 
 * [api](#api)
 * [appname](#appname)
-* [defaultRoute](#defaultroute)
 * [production](#production)
 * [theme](#theme)
 * [serverIp](#serverip)
@@ -148,13 +147,6 @@ Defines the URL to the backend.
 Applicationwide title of the app, displayed in title and toolbar.
 
 * default: `Minecraft server status`
-* type: `string`
-
-### `defaultRoute`
-
-The default route and the route to be redirected after a login if no route is stored or if a route does not exist.
-
-* default: `dashboard`
 * type: `string`
 
 ### `production`

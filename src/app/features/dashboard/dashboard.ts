@@ -27,9 +27,9 @@ import { McStatusService } from './mc-status.service';
 })
 export class Dashboard implements OnInit {
   //#region Injections
-  #formBuilder = inject(FormBuilder);
-  #domSanitizer = inject(DomSanitizer);
-  #mcStatusService = inject(McStatusService);
+  readonly #formBuilder = inject(FormBuilder);
+  readonly #domSanitizer = inject(DomSanitizer);
+  readonly #mcStatusService = inject(McStatusService);
   //#endregion
 
   readonly mcStatus = this.#mcStatusService.getStatus();
